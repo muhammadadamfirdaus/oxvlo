@@ -1,0 +1,76 @@
+name: Deploy Web Staging
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  deploy:
+    name: Staging - beta.oxvlo.com
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Upload Files to Server
+        uses: appleboy/scp-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 2020
+          source: .
+          target: /tmp/oxvlo-staging
+          timeout: 30s
+          command_timeout: 10m
+
+      - name: Deploy on Staging
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 2020
+          command_timeout: 15m
+          script: |
+            sudo -u gawai bash -c '
+              TARGET="/var/www/oxvlo/staging"
+              PM2_NAME="oxvlo-web-staging"
+
+              echo "📦 Deploying oxvlo staging..."
+
+              mkdir -p $TARGET
+
+              # Move uploaded files
+              rm -rf $TARGET/*
+              mv /tmp/oxvlo-staging/* $TARGET/
+              rm -rf /tmp/oxvlo-staging
+
+              # Write .env file
+              echo "✍🏻  Writing .env file..."
+              echo "PORT=3001" > $TARGET/.env
+
+              cd $TARGET
+
+              # Install dependencies
+              echo "📚 Installing dependencies..."
+              rm -rf node_modules
+              NODE_OPTIONS="--max-old-space-size=1536" npm install
+
+              # Build
+              echo "🔨 Building..."
+              if ! NODE_OPTIONS="--max-old-space-size=1536" npm run build; then
+                echo "❌ Build failed!"
+                exit 1
+              fi
+              echo "✅ Build completed"
+
+              # Restart PM2
+              echo "♻️  Restarting PM2..."
+              PORT=3001 pm2 start npm --name $PM2_NAME -- run start || PORT=3001 pm2 restart $PM2_NAME --update-env
+              pm2 save
+
+              echo "🚀 Staging deploy done — beta.oxvlo.com"
+            '

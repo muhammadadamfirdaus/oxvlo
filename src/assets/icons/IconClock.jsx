@@ -1,0 +1,14 @@
+import Icon from '@/app/components/utilities/Icon';
+
+function IconClock(props) {
+  return (
+    <Icon {...props}>
+      <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </svg>
+    </Icon>
+  );
+}
+
+export default IconClock;
