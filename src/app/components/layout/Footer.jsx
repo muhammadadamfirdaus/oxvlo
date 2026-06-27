@@ -30,7 +30,7 @@ function Footer() {
 
   return (
     <footer>
-      <div className="px-14 pt-14 pb-11 border-t border-oxv-border-divider grid grid-cols-[2fr_1fr_1fr_1fr_1.2fr] gap-10">
+      <div className="px-14 pt-14 pb-24 border-t border-oxv-border-divider grid grid-cols-[2fr_1fr_1fr_1fr_1.2fr] gap-10">
         <div>
           <div className="mb-[14px]">
             <Image src={logo} alt="OXVLO" height={22} width={Math.round((logo.width / logo.height) * 22)} />
@@ -80,7 +80,7 @@ function Footer() {
 
       <div className="mx-14">
         <div className="oxv-divider" />
-        <div className="py-7 pb-10 text-center text-[13px] text-oxv-text-faint">© 2026 OXVLO. All rights reserved.</div>
+        <div className="py-8 text-center text-[13px] text-oxv-text-faint">© 2026 OXVLO. All rights reserved.</div>
       </div>
     </footer>
   );
