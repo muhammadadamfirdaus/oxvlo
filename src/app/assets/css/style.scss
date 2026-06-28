@@ -7,6 +7,18 @@
 
 // ─── Keyframes ───────────────────────────────────────────────────────────────
 
+@keyframes headerSlideDown {
+  from { transform: translate3d(0, -100%, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}
+
+@media (min-width: 768px) {
+  .header-sticky {
+    position: fixed !important;
+    animation: headerSlideDown 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+}
+
 @keyframes oxvGlow {
   0%, 100% { opacity: 0.38; transform: rotate(0deg) scale(1); }
   50%       { opacity: 0.6;  transform: rotate(40deg) scale(1.06); }

@@ -53,12 +53,12 @@ function SectionStats() {
   }, []);
 
   return (
-    <section ref={refContainer} className="px-14 py-[76px] border-t border-oxv-border-divider">
-      <div className="flex items-center justify-center gap-14 flex-wrap">
+    <section ref={refContainer} className="px-4 md:px-8 lg:px-14 py-[76px] border-t border-oxv-border-divider">
+      <div className="flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap items-center justify-center gap-8 md:gap-10 lg:gap-0">
         {stats.map((stat, i) => (
-          <div key={stat.label} className="flex items-center gap-14">
-            {i > 0 && <div className="w-px h-16 bg-oxv-border" />}
-            <div className="text-center w-[180px]">
+          <div key={stat.label} className="flex items-center w-full md:w-[calc(50%-20px)] lg:w-auto">
+            {i > 0 && <div className="hidden lg:block w-px h-16 bg-oxv-border shrink-0 mx-10" />}
+            <div className="text-center w-[160px] lg:w-[180px] mx-auto lg:mx-0">
               <div
                 ref={refStats[i]}
                 className={`font-display font-semibold leading-none tabular-nums ${

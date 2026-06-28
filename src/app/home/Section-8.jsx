@@ -12,12 +12,12 @@ const workflowSteps = [
 
 function Section8() {
   return (
-    <section className="px-14 py-24 border-t border-oxv-border-divider bg-gradient-to-b from-[#0c0b10] to-oxv-background grid grid-cols-2 gap-16 items-center">
-      <div>
+    <section className="px-4 md:px-8 lg:px-14 py-12 md:py-16 lg:py-24 border-t border-oxv-border-divider bg-gradient-to-b from-[#0c0b10] to-oxv-background flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 items-center">
+      <div className="w-full md:flex-1">
         <div className="font-mono text-[15px] tracking-oxv-label mb-[10px] text-oxv-accent">
           AI Automation
         </div>
-        <h2 className="font-display font-semibold text-oxv-h2 m-0 mb-5 text-oxv-heading text-balance">
+        <h2 className="font-display font-semibold text-[26px] md:text-[34px] lg:text-oxv-h2 m-0 mb-5 text-oxv-heading text-balance">
           We put the busywork on autopilot
         </h2>
         <p className="text-[18px] leading-[1.6] text-oxv-text-muted m-0">
@@ -34,7 +34,7 @@ function Section8() {
         </div>
       </div>
 
-      <div className="bg-oxv-background-card border border-oxv-border rounded-2xl min-h-[340px] p-11 flex flex-col items-center justify-center">
+      <div className="w-full md:flex-1 bg-oxv-background-card border border-oxv-border rounded-2xl min-h-[200px] md:min-h-[280px] lg:min-h-[340px] p-6 md:p-8 lg:p-11 flex flex-col items-center justify-center">
         {workflowSteps.map((step, i) => (
           <div key={step.title} className="flex flex-col items-center">
             {i > 0 && <div className="w-0.5 h-[26px] oxv-connector-line" />}

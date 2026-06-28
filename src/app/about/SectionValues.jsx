@@ -25,15 +25,15 @@ const values = [
 
 function SectionValues() {
   return (
-    <section className="px-14 py-[84px] border-t border-oxv-border-divider">
+    <section className="px-4 md:px-8 lg:px-14 py-12 md:py-16 lg:py-[84px] border-t border-oxv-border-divider">
       <div className="font-mono text-[13px] tracking-[0.2em] uppercase text-oxv-accent mb-11">
         What we hold to
       </div>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="flex flex-col md:flex-row gap-4 md:gap-6">
         {values.map(({ icon, title, description }) => (
           <div
             key={title}
-            className="bg-oxv-background-surface border border-[#20232a] rounded-2xl p-8"
+            className="w-full md:flex-1 bg-oxv-background-surface border border-[#20232a] rounded-2xl p-8"
           >
             <div className="w-[46px] h-[46px] rounded-xl border border-oxv-border-subtle flex items-center justify-center mb-[22px] text-oxv-accent">
               {icon}

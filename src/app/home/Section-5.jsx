@@ -14,12 +14,12 @@ const highlights = [
 
 function Section5() {
   return (
-    <section className="px-14 py-24 border-t border-oxv-border-divider grid grid-cols-2 gap-16 items-center">
-      <div>
+    <section className="px-4 md:px-8 lg:px-14 py-12 md:py-16 lg:py-24 border-t border-oxv-border-divider flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 items-center">
+      <div className="w-full md:flex-1">
         <div className="font-mono text-[15px] tracking-oxv-label mb-[10px] text-oxv-accent">
           Hosting
         </div>
-        <h2 className="font-display font-semibold text-oxv-h2 m-0 mb-5 text-oxv-heading text-balance">
+        <h2 className="font-display font-semibold text-[26px] md:text-[34px] lg:text-oxv-h2 m-0 mb-5 text-oxv-heading text-balance">
           Always on, always fast
         </h2>
         <p className="text-[18px] leading-[1.6] text-oxv-text-muted m-0">
@@ -36,7 +36,7 @@ function Section5() {
         </div>
       </div>
 
-      <div className="bg-oxv-background-card border border-oxv-border rounded-2xl min-h-[340px] p-11 flex flex-col justify-center gap-[30px]">
+      <div className="w-full md:flex-1 bg-oxv-background-card border border-oxv-border rounded-2xl min-h-[200px] md:min-h-[280px] lg:min-h-[340px] p-6 md:p-8 lg:p-11 flex flex-col justify-center gap-[30px]">
         <div>
           <div className="font-display text-[60px] font-semibold leading-none text-oxv-accent">
             99.99%

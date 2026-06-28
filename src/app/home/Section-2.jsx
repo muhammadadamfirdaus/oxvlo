@@ -42,7 +42,7 @@ function LogoItem({ logo }) {
 
 function Section2() {
   return (
-    <section className="px-14 py-[46px] border-t border-oxv-border-divider overflow-hidden">
+    <section className="px-4 md:px-8 lg:px-14 py-[46px] border-t border-oxv-border-divider overflow-hidden">
       <div className="max-w-[880px] mx-auto">
         {/* <div className="text-center font-text text-md text-oxv-text-faint mb-8">Quietly powering the teams behind these names</div> */}
         <div className="relative oxv-marquee-wrapper">

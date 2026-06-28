@@ -9,8 +9,8 @@ const tlds = [
 
 function Section4() {
   return (
-    <section className="px-14 py-24 border-t border-oxv-border-divider grid grid-cols-2 gap-16 items-center">
-      <div className="bg-oxv-background-card border border-oxv-border rounded-2xl min-h-[340px] p-11 flex flex-col justify-center gap-6">
+    <section className="px-4 md:px-8 lg:px-14 py-12 md:py-16 lg:py-24 border-t border-oxv-border-divider flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 items-center">
+      <div className="w-full md:flex-1 bg-oxv-background-card border border-oxv-border rounded-2xl min-h-[200px] md:min-h-[280px] lg:min-h-[340px] p-6 md:p-8 lg:p-11 flex flex-col justify-center gap-6">
         <div className="flex items-center gap-3 bg-oxv-background-hover border border-oxv-border-subtle rounded-xl px-[18px] py-[17px]">
           <div className="w-[9px] h-[9px] rounded-full bg-oxv-accent oxv-glow-dot-small shrink-0" />
           <span className="font-mono text-[17px] text-oxv-text">
@@ -36,11 +36,11 @@ function Section4() {
         </div>
       </div>
 
-      <div>
+      <div className="w-full md:flex-1">
         <div className="font-mono text-[15px] tracking-oxv-label mb-[10px] text-oxv-accent">
           Domains
         </div>
-        <h2 className="font-display font-semibold text-oxv-h2 m-0 mb-5 text-oxv-heading text-balance">
+        <h2 className="font-display font-semibold text-[26px] md:text-[34px] lg:text-oxv-h2 m-0 mb-5 text-oxv-heading text-balance">
           Your name, locked in
         </h2>
         <p className="text-[18px] leading-[1.6] text-oxv-text-muted m-0">
