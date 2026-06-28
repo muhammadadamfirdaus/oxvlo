@@ -69,7 +69,7 @@ jobs:
 
               # Restart PM2
               echo "♻️  Restarting PM2..."
-              PORT=3002 pm2 start npm --name $PM2_NAME -- run start || PORT=3002 pm2 restart $PM2_NAME --update-env
+              PORT=3002 pm2 restart $PM2_NAME --update-env || PORT=3002 pm2 start npm --name $PM2_NAME -- run start
               pm2 save
 
               echo "🚀 Production deploy done — oxvlo.com"
