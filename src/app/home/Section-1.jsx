@@ -9,8 +9,8 @@ function Section1() {
       </div>
 
       <div className="relative">
-        <h1 className="font-display font-semibold text-[34px] md:text-[50px] lg:text-oxv-hero max-w-[820px] mx-auto oxv-text-gradient text-balance m-0 oxv-animation-rise">Everything your business needs to exist online</h1>
-        <p className="text-[15px] md:text-[17px] lg:text-[20px] leading-[1.55] text-oxv-text-muted max-w-[640px] mx-auto mt-[30px] mb-0 oxv-animation-rise-delay-130">We keep your business online, so you can focus on running it.</p>
+        <h1 className="font-display font-semibold text-[32px] md:text-[50px] lg:text-oxv-hero max-w-[820px] mx-auto oxv-text-gradient text-balance m-0 oxv-animation-rise">Everything your business needs to exist online</h1>
+        <p className="text-[15px] md:text-[17px] lg:text-[20px] leading-[1.55] text-oxv-text-muted max-w-[280px] md:max-w-[640px] mx-auto mt-[30px] mb-0 oxv-animation-rise-delay-130">We keep your business online, so you can focus on running it.</p>
         <div className="flex gap-4 justify-center mt-[42px] oxv-animation-rise-delay-240">
           <Button variant="primary" size="lg" href="/contact" className="oxv-button-banner">
             Start a project
