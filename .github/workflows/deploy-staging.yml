@@ -36,39 +36,39 @@ jobs:
           command_timeout: 15m
           script: |
             TARGET="/home/oxvlo.com/web/staging"
-              PM2_NAME="oxvlo-web-staging"
+            PM2_NAME="oxvlo-web-staging"
 
-              echo "📦 Deploying oxvlo staging..."
+            echo "📦 Deploying oxvlo staging..."
 
-              mkdir -p $TARGET
+            mkdir -p $TARGET
 
-              # Move uploaded files
-              rm -rf $TARGET/*
-              mv /tmp/oxvlo-staging/* $TARGET/
-              rm -rf /tmp/oxvlo-staging
+            # Move uploaded files
+            rm -rf $TARGET/*
+            mv /tmp/oxvlo-staging/* $TARGET/
+            rm -rf /tmp/oxvlo-staging
 
-              # Write .env file
-              echo "✍🏻  Writing .env file..."
-              echo "PORT=3001" > $TARGET/.env
+            # Write .env file
+            echo "✍🏻  Writing .env file..."
+            echo "PORT=2014" > $TARGET/.env
 
-              cd $TARGET
+            cd $TARGET
 
-              # Install dependencies
-              echo "📚 Installing dependencies..."
-              rm -rf node_modules
-              NODE_OPTIONS="--max-old-space-size=1536" npm install
+            # Install dependencies
+            echo "📚 Installing dependencies..."
+            rm -rf node_modules
+            NODE_OPTIONS="--max-old-space-size=1536" npm install
 
-              # Build
-              echo "🔨 Building..."
-              if ! NODE_OPTIONS="--max-old-space-size=1536" npm run build; then
-                echo "❌ Build failed!"
-                exit 1
-              fi
-              echo "✅ Build completed"
+            # Build
+            echo "🔨 Building..."
+            if ! NODE_OPTIONS="--max-old-space-size=1536" npm run build; then
+              echo "❌ Build failed!"
+              exit 1
+            fi
+            echo "✅ Build completed"
 
-              # Restart PM2
-              echo "♻️  Restarting PM2..."
-              PORT=3001 pm2 restart $PM2_NAME --update-env || PORT=3001 pm2 start npm --name $PM2_NAME -- run start
-              pm2 save
+            # Restart PM2
+            echo "♻️  Restarting PM2..."
+            PORT=2014 pm2 restart $PM2_NAME --update-env || PORT=2014 pm2 start npm --name $PM2_NAME -- run start
+            pm2 save
 
-              echo "🚀 Staging deploy done — beta.oxvlo.com"
+            echo "🚀 Staging deploy done — beta.oxvlo.com"
