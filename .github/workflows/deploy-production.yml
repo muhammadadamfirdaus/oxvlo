@@ -35,8 +35,7 @@ jobs:
           port: 2020
           command_timeout: 15m
           script: |
-            sudo -u gawai bash -c '
-              TARGET="/var/www/oxvlo/production"
+            TARGET="/home/oxvlo.com/web/production"
               PM2_NAME="oxvlo-web-production"
 
               echo "📦 Deploying oxvlo production..."
@@ -73,4 +72,3 @@ jobs:
               pm2 save
 
               echo "🚀 Production deploy done — oxvlo.com"
-            '
