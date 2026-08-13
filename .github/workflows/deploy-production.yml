@@ -77,7 +77,7 @@ jobs:
 
             # Restart PM2
             echo "♻️  Restarting PM2..."
-            PORT=2805 pm2 start npm --name $PM2_NAME --max-memory-restart 300M -- run start
+            PORT=2805 pm2 start node_modules/.bin/next --name $PM2_NAME --max-memory-restart 300M -- start
             pm2 save
 
             echo "🚀 Production deploy done — oxvlo.com"
