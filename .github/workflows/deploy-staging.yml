@@ -71,11 +71,8 @@ jobs:
             pm2 delete $PM2_NAME || true
             sleep 1
 
-            PID=$(lsof -t -i:2014) || true
-            if [ -n "$PID" ]; then
-              echo "🔪 Killing all process on port 2014: $PID"
-              kill -9 $PID || true
-            fi
+            echo "🔪 Freeing port 2014..."
+            sudo fuser -k -n tcp 2014 2>/dev/null || true
             sleep 2
 
             # Restart PM2
