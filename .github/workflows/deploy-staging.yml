@@ -66,9 +66,21 @@ jobs:
             fi
             echo "✅ Build completed"
 
+            # Stop the live app and free its port
+            echo "🖐🏻 Stopping current app..."
+            pm2 delete $PM2_NAME || true
+            sleep 1
+
+            PID=$(lsof -t -i:2014) || true
+            if [ -n "$PID" ]; then
+              echo "🔪 Killing all process on port 2014: $PID"
+              kill -9 $PID || true
+            fi
+            sleep 2
+
             # Restart PM2
             echo "♻️  Restarting PM2..."
-            PORT=2014 pm2 restart $PM2_NAME --update-env || PORT=2014 pm2 start npm --name $PM2_NAME -- run start
+            PORT=2014 pm2 start npm --name $PM2_NAME --max-memory-restart 300M -- run start
             pm2 save
 
             echo "🚀 Staging deploy done — beta.oxvlo.com"
